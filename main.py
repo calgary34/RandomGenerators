@@ -32,6 +32,92 @@ def eng_upper():
 def randomrussian():
     letters=["б", "в", "г", "д", "ж", "з", "к", "л", "м", "н", "п", "р", "с", "т", "ф", "х", "ц", "ч", "ш", "щ","а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я",'й']
     return render_template("rrussian.html",rand=random.choice(letters))
+@app.route('/random/dice/')
+def dicepage():
+    dice=['⚀',  
+    '⚁',
+    '⚂',
+    '⚃',
+    '⚄',
+    '⚅']
+    rand=random.choice(dice)
+    rolled=''
+    if rand=='⚀':
+      rolled='one'
+    elif rand=='⚁':
+      rolled='two'
+    elif rand=='⚂':
+      rolled='three'
+    elif rand=='⚃':
+      rolled='four'
+    elif rand=='⚄':
+      rolled='five'
+    else:
+      rolled='six'
+    return render_template("dice.html",rand=rand,rolled=rolled)
+@app.route('/random/usa/state/')
+def randomstate():
+    states=['Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',]
+    return render_template("usa_states.html",rand=random.choice(states))
+@app.route('/random/canada/')
+def random_canada_province_territory():
+    states=['Alberta','British Columbia','Ontario','New Brunswick','Prince Edward Island','Newfoundland and Labrador','Saskatchewan','Nova Scotia','Manitoba','Yukon','Northwest Territories','Nunavut']
+    return render_template("canada_sub.html",rand=random.choice(states))
+@app.route('/random/color/')
+def random_color():
+    r=random.randint(0,255)
+    g=random.randint(0,255)
+    b=random.randint(0,255)
+    return render_template("color.html",r=r,g=g,b=b)
 if __name__ == "__main__":  # Makes sure this is the main process
 	app.run( # Starts the site
 		host='0.0.0.0',  # Establishes the host, required for repl to detect the site
