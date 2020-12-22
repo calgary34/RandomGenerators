@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Random Float{% endblock %}
+{% block content %}
+    <h1>Your random letter is: {{rand}}</h1>
+    <p>if you want lowercase english letters click <a href="/random/letter/upper">here</a>.</p>
+    <p>This outputs a random upper case English letter. If you want a random letter from other langauges, click the following links:</p>
+    <ul>
+        <li><a href="/random/greek/">Greek</a></li>
+        <li><a href="/random/letter/russian">Russian</a></li>
+    </ul>
+{% endblock %}
