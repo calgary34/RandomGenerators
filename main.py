@@ -250,10 +250,81 @@ def random_element():
     (116,	'Lv',	'Livermorium'),
     (117,	'Ts',	'Tennessine'),
     (118,	'Og',	'Oganesson'))
-    element=random.choice(elements[2])
-    atomicnum=random.choice(elements[0])
-    symbol=random.choice(elements[1])
+    element=random.choice(elements)[2]
+    atomicnum=random.choice(elements)[0]
+    symbol=random.choice(elements)[1]
     return render_template("element.html",element=element,atomicnum=atomicnum,symbol=symbol)
+@app.route('/random/nba/')
+def random_nba():
+    teams=['Atlanta Hawks',
+    'Boston Celtics',
+    'Brooklyn Nets',
+    'Charlotte Hornets',
+    'Chicago Bulls',
+    'Cleveland Cavaliers',
+    'Dallas Mavericks',
+    'Denver Nuggets',
+    'Detroit Pistons',
+    'Golden State Warriors',
+    'Houston Rockets',
+    'Indiana Pacers',
+    'Los Angeles Clippers',
+    'Los Angeles Lakers',
+    'Memphis Grizzlies',
+    'Miami Heat',
+    'Milwaukee Bucks',
+    'Minnesota Timberwolves',
+    'New Orleans Pelicans',
+    'New York Knicks',
+    'Oklahoma City Thunder',
+    'Orlando Magic',
+    'Philadelphia 76ers',
+    'Phoenix Suns',
+    'Portland Trail Blazers',
+    'Sacramento Kings',
+    'San Antonio Spurs',
+    'Toronto Raptors',
+    'Utah Jazz',
+    'Washington Wizards',
+    ]
+    team=random.choice(teams)
+    return render_template("nba.html",team=team)
+@app.route('/random/nhl/')
+def random_nhl():
+    teams=['Anaheim Ducks',
+    'Arizona Coyotes',
+    'Boston Bruins',
+    'Buffalo Sabres',
+    'Calgary Flames',
+    'Carolina Hurricanes',
+    'Chicago Blackhawks',
+    'Colorado Avalanche',
+    'Columbus Blue Jackets',
+    'Dallas Stars',
+    'Detroit Red Wings',
+    'Edmonton Oilers',
+    'Florida Panthers',
+    'Los Angeles Kings',
+    'Minnesota Wild',
+    'Montreal Canadiens',
+    'Nashville Predators',
+    'New Jersey Devils',
+    'New York Islanders',
+    'New York Rangers',
+    'Ottawa Senators',
+    'Philadelphia Flyers',
+    'Pittsburgh Penguins',
+    'San Jose Sharks',
+    'St. Louis Blues',
+    'Tampa Bay Lightning',
+    'Toronto Maple Leafs',
+    'Vancouver Canucks',
+    'Vegas Golden Knights',
+    'Washington Capitals',
+    'Winnipeg Jets',
+    ]
+    team=random.choice(teams)
+    return render_template("nhl.html",team=team)
 if __name__ == "__main__":  # Makes sure this is the main process
 	app.run( # Starts the site
 		host='0.0.0.0',  # Establishes the host, required for repl to detect the site
